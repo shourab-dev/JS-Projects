@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 10px;
+  font-family: roboto;
+}
+:root {
+}
+
+.cursor {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #222;
+  border-radius: 50%;
+  display: grid;
+  position: absolute;
+  place-items: center;
+  top: var(--mouseY);
+  left: var(--mouseX);
+  pointer-events: none;
+  transition: 0.15s;
+}
+
+
+.pointer {
+  width: 10px;
+  height: 10px;
+  background-color: #222;
+  border-radius: 50%;
+  position: absolute;
+  
+}
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+  text-align: justify;
+  overflow: hidden;
+  place-items: center;
+}
+
+.container {
+  width: 1170px;
+  margin: auto;
+}
+.content h1 {
+  font-size: 5rem;
+}
+
+.content p {
+  font-size: 1rem;
+  margin: 20px 0;
+  line-height: 24px;
+}
+
+/* * images here */
+.images {
+  margin: -120px 0;
+}
+
+.img_card {
+  height: 400px;
+  cursor: pointer;
+}
+.img_card:last-child {
+  margin-top: 50px;
+}
+.img_card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 15px;
+}
+
+.cursor.alternate{
+  background-color: rgba(34, 34, 34, 0.785);
+  transform: scale(2);
+  border-color: transparent;
+
+}
+.cursor.alternate .pointer{
+  background-color: #fff;
+  
+}
