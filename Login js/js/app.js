@@ -38,3 +38,48 @@ passwordToggler.addEventListener("click", (e) => {
     e.currentTarget.classList.add("show");
   }
 });
+
+//*LOGIN FORM SUBMITION
+const loginForm = document.querySelector(".login_form");
+const formSubmitBtn = document.querySelector("button.button span");
+const pushClass = (classItems, icon) => {
+  classItems.map((item) => {
+    icon.classList.add(item);
+  });
+  return icon;
+};
+
+
+const removeIcon = (icon) => {
+  icon.innerHTML = ""
+  icon.innerHTML = "Login"
+}
+
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let icon = document.createElement("i");
+  let spinnerClasses = "bi bi-arrow-clockwise rotation";
+  spinnerClasses = spinnerClasses.split(" ");
+  pushClass(spinnerClasses, icon);
+  console.log(icon)
+  formSubmitBtn.innerHTML = "";
+  formSubmitBtn.appendChild(icon);
+
+  setTimeout((e)=>{
+    icon.classList.remove("rotation")
+    spinnerClasses = "bi bi-check2";
+     spinnerClasses = spinnerClasses.split(" ");
+     pushClass(spinnerClasses, icon);
+     formSubmitBtn.innerHTML = "";
+     formSubmitBtn.appendChild(icon);
+     setTimeout(()=>{
+      removeIcon(formSubmitBtn);
+     }, 400);
+  }, 1000);
+
+
+
+
+});
+
