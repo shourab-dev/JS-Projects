@@ -16,7 +16,7 @@ window.onmousemove = (e) => {
   const nextPercentage = Math.max(
     Math.min(parseFloat(track.dataset.prevPercentage) + percentange, 0),-100
   );
-
+    console.log(nextPercentage)
   track.dataset.percentange = nextPercentage;
   track.style.transform = `translate(${nextPercentage}%, -50%)`;
 
