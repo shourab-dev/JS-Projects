@@ -13,7 +13,8 @@ body {
 
 .wrapper {
   width: 450px;
-  height: 70vh;
+  height: fit-content;
+  max-height: 70vh;
   padding: 20px;
   background: rgba(255, 255, 255, 0.45);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
@@ -25,7 +26,7 @@ body {
 
 /* * SEARCH BAR DESIGN */
 .search_bar {
-    position: relative;
+  position: relative;
 }
 .search_bar input {
   width: 100%;
@@ -37,21 +38,26 @@ body {
   font-size: 1rem;
 }
 
+.search_bar button.locate_button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 7px 23px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-image: linear-gradient(to right, #00c6ff, #0073ffdd);
+}
 
-.search_bar  button.locate_button{
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 7px 23px;
-    border-radius: 25px;
-    border: none;
-    outline: none;
-    color: white;
-    background-image: linear-gradient(to right, #00c6ff, #0073ffdd);
+.search_bar button.locate_button path {
+  stroke: white;
 }
 
 
-.search_bar  button.locate_button path{
-    stroke: white;
+.search_bar button.locate_button:hover{
+  transform: scale(0.8) translateY(-50%);
 }
