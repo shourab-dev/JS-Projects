@@ -28,15 +28,20 @@ body {
   background-color: #fafafa;
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.calculator .display p{
+  padding-right: 14px;
 }
 .calculator .display .display_input {
   padding: 15px 0;
   display: block;
   background-color: transparent;
   width: 100%;
-  height: 40px;
+  height: fit-content;
   text-align: right;
-  font-size: 2rem;
+  font-size: 4rem;
   border: none;
   outline: none;
   padding-right: 10px;
