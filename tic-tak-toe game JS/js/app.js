@@ -1,6 +1,8 @@
 const sideBtns = document.querySelectorAll(".sides button");
 const wrapper = document.querySelector(".wrapper");
 const cells = document.querySelectorAll(".box");
+const modal = document.querySelector(".modal");
+
 let currentPlayer = null;
 let side = null;
 let winRules = [
@@ -24,11 +26,54 @@ const updatePlayer = () => {
   ).innerHTML = `${currentPlayer} player's turn`;
 };
 
+//*RESET GAME FUNCTION
+const resetGame = () => {
+  side = null;
+  localStorage.removeItem("side");
+};
+
+//*UPDATE MODAL
+const updateModal = (isWin, text) => {
+  modal.classList.add("show");
+  if (isWin == true) {
+    modal.querySelector("img").src = "./images/wow.gif";
+  } else {
+    modal.querySelector("img").src = "./images/sad.gif";
+  }
+  modal.querySelector("h2").innerHTML = text;
+};
+
+//* WINNER CHECKER
+const winnerChecker = () => {
+  for (let rule in winRules) {
+    let condition = winRules[rule];
+    const cellA = options[condition[0]];
+    const cellB = options[condition[1]];
+    const cellC = options[condition[2]];
+
+    if (cellA == "" || cellB == "" || cellC == "") {
+      continue;
+    }
+
+    if (cellA == cellB && cellB == cellC) {
+      //* WINNER FOUND
+      let winningText = cellA == side ? `You Win!` : `You Lose!`;
+      let isWin = cellA == side ? true : false;
+      resetGame();
+      updateModal(isWin, winningText);
+      break;
+    }
+
+    //*END OF LOOP
+  }
+};
+
 //* CELL CLICK EVENT
 const cellCheck = ({ target } = e) => {
-  console.log(currentPlayer);
   target.innerHTML = currentPlayer;
+  options[target.dataset.index] = currentPlayer;
   updatePlayer();
+  winnerChecker();
 };
 
 //* INT THE GAME
@@ -39,10 +84,10 @@ const initializeGame = () => {
 };
 
 //*RESETING THE GAME
-window.onbeforeunload = function () {
-  side = null;
-  localStorage.removeItem("side");
-};
+window.onbeforeunload = resetGame();
+modal.querySelector("button.restart").addEventListener("click", () => {
+  window.location.reload();
+});
 
 //*CHOOSING A SIDE
 const chooseSides = (e) => {
