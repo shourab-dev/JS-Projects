@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Courgette", cursive;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+:root {
+  --primary: rgb(255, 101, 58);
+}
+
+#landing {
+  height: 100vh;
+  position: relative;
+}
+
+#landing .wrapper {
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  letter-spacing: 2px;
+  overflow: hidden;
+}
+
+.wrapper .cnt {
+  height: 100%;
+  width: 100vw;
+  padding: 40px 0px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper .cnt nav {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.wrapper .cnt ul {
+  font-family: arial;
+  text-align: right;
+}
+.wrapper .cnt .logo {
+  font-size: 3rem;
+}
+.wrapper .cnt ul li {
+  display: inline-block;
+}
+.wrapper .cnt ul li a {
+  font-size: 2rem;
+  color: var(--primary);
+  display: block;
+  margin: 0 15px;
+}
+
+.wrapper .title {
+  font-size: 5rem;
+  text-align: center;
+  margin: 100px 0;
+}
+.container {
+  width: 100%;
+  max-width: 1170px;
+}
+
+/* WRAPPER ENDS  */
+
+.back {
+  background-color: #fff;
+  color: var(--primary);
+}
+
+#front .wrapper {
+  background-color: rgb(14, 12, 21);
+  color: white;
+  z-index: 2;
+  width: 50%;
+}
+
+#front .wrapper ul li a {
+  color: white;
+}
+
+.card_container {
+  overflow: hidden;
+  display: flex;
+  width: 120%;
+}
+.card_container .card {
+  height: 400px;
+  width: 25%;
+  margin: 0 10px;
+}
+
+.card_container .card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px 25px 0 0;
+  object-fit: cover;
+}
