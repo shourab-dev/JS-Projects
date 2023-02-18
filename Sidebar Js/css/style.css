@@ -20,7 +20,7 @@ ul {
 }
 aside {
   background-color: rgb(14, 14, 14);
-  height: calc(100vh - 10px);
+  min-height: calc(100vh - 10px);
   width: 100%;
   max-width: 300px;
   margin: 5px 5px;

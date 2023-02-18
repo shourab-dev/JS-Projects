@@ -13,7 +13,7 @@
 
     <div class="wrapper">
         <h1><span>CountDown</span> JS</h1>
-        <div class="countdown" data-date="Dec 9, 2022 23:50:00">
+        <div class="countdown" data-date="">
             <ul>
                 <li>
                     <span class="days">14</span>days
@@ -24,7 +24,17 @@
             </ul>
         </div>
     </div>
-
+    <script>
+        let countDownDataSet = document.querySelector('.countdown').dataset.date
+        if (countDownDataSet == '') {
+            const today = new Date()
+            let tomorrow = new Date()
+            tomorrow.setDate(today.getDate() + 1)
+            document.querySelector('.countdown').dataset.date = tomorrow
+            
+            console.log(countDownDataSet);
+        }
+    </script>
     <script src="./js/app.js"></script>
 
 </body>
