@@ -1,0 +1,86 @@
+/* *COMMON CSSS STARTS HERE */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 1170px;
+  margin: auto;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+.align-center {
+  align-items: center;
+}
+/* *COMMON CSSS ENDS HERE */
+
+/* *NAVBAR STARTS HERE */
+
+nav {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+nav .logo {
+  width: 40%;
+  font-size: 20px;
+}
+nav .logo span {
+  color: rgb(255, 188, 43);
+}
+
+nav .menu {
+  width: 60%;
+  text-align: right;
+}
+nav .menu ul li {
+  display: inline-block;
+}
+
+nav .menu ul li a {
+  padding: 20px 30px;
+  display: block;
+  font-weight: 500;
+}
+
+p {
+  font-size: 18px;
+  line-height: 35px;
+  text-align: justify;
+  margin: 15px auto;
+}
+
+.activeMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+
+  animation: menuFixed 0.35s ease 1 forwards;
+}
+
+@keyframes menuFixed {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+/* *NAVBAR ENDS HERE */
