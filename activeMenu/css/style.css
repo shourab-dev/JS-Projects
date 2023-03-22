@@ -14,6 +14,10 @@
   display: flex;
   flex-wrap: wrap;
 }
+html {
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 150px;
+}
 ul,
 ol {
   list-style: none;
@@ -55,6 +59,14 @@ nav .menu ul li a {
   padding: 20px 30px;
   display: block;
   font-weight: 500;
+  transition: 0.25s ease;
+}
+
+nav .menu ul li a:hover,
+nav .menu ul li a.active {
+  background-color: orange;
+  color: white;
+  transition: 0.25s ease;
 }
 
 p {
