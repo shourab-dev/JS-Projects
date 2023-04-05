@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+/* *CALCULATOR  STARTS HERE */
+.wrapper {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.wrapper h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.wrapper form {
+  display: block;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 500px;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.wrapper form input {
+  display: block;
+  height: 45px;
+  border: 1px solid #ddd;
+  outline: none;
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.wrapper form button {
+  width: 100%;
+  display: block;
+  height: 50px;
+
+  color: #fff;
+
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  background: #56ccf2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2f80ed,
+    #56ccf2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2f80ed,
+    #56ccf2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.wrapper form p {
+  margin-top: 15px;
+  width: 100%;
+  padding: 15px;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.wrapper form p:not(.show){
+  display: none;
+}
+
+.success{
+  background: linear-gradient(to right, #0cebeb, #20e3b2, #29ffc6); 
+}
+.danger{
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+}
+
+/* *CALCULATOR  STARTS HERE */
