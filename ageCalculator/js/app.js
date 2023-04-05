@@ -4,6 +4,7 @@ const button = document.querySelector('button[type="submit"]');
 const resultBox = document.querySelector(".result");
 const result = document.querySelector(".result h4");
 const calBox = document.querySelector(".calculator");
+const months = [31,28,31,30,31,30,31,31,30,31,30,31]
 //* SWEET ALERT 2
 const Toast = Swal.mixin({
   toast: true,
@@ -48,13 +49,21 @@ const ageChecker = (e, name, date) => {
     let today = new Date();
     let birthday = new Date(date.value);
 
-    let calculateResult = `${name.value} your age is ${
-      today.getFullYear() - birthday.getFullYear()
-    } years ${Math.abs(
-      today.getMonth() - birthday.getMonth()
-    )} months and ${Math.abs(today.getDate() - birthday.getDate())} days`;
+    let diffYear = today.getFullYear() - birthday.getFullYear();
+    let diffMonth;
+    if (birthday.getMonth() >= today.getMonth()) {
+      diffYear--
+      diffMonth = 12 + today.getMonth() - birthday.getMonth()
+    } else{
+      diffMonth = today.getMonth() - birthday.getMonth();
+    }
 
-    result.innerHTML = calculateResult;
+    if (birthday.getDate() >= today.getDate()) {
+      
+    }
+
+    //result.innerHTML = calculateResult;
+    console.log(diffMonth);
     //* ANIMATE RESULTS
     calBox.animate(
       {
@@ -78,12 +87,23 @@ const ageChecker = (e, name, date) => {
       }
     );
 
-      //* CLEAR INPUT FIELD
-      name.value = ''
-      date.value = ''
-
-
+    //* CLEAR INPUT FIELD
+    // name.value = ''
+    // date.value = ''
   }
 };
+
+const myTest = () => {
+  let today = new Date();
+  let birthday = new Date("1997-04-24");
+
+  let todayMili = today.getTime();
+  let birthdayMili = today.getTime();
+  let diff = new Date(todayMili - birthdayMili);
+
+  console.log(todayMili - birthdayMili);
+};
+
+myTest();
 
 button.addEventListener("click", (e) => ageChecker(e, name, date));
