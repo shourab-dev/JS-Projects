@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #414345, #232526);
+  font-family: "Poppins", sans-serif;
+
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.wrapper {
+  width: 350px;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #fff;
+}
+
+.wrapper h2 span{
+    color: #0bb30b;
+}
+
+
+.wrapper input[type="text"]:not(.totalLength){
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0 15px;
+    border: none;
+    outline: none;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+
+.inputArea{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+}
+.inputArea input{
+    display: block;
+        margin-left: auto;
+}
+.inputArea  input[type="text"]{
+        width:50px;
+        height: 30px;
+        padding: 0 5px;
+    
+}
+
+button.submit{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #0bb30b;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+.displayArea{
+  position: relative;
+}
+
+.displayArea  span{
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #333;
+  background-color: rgba(65, 246, 125, 0.364);
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: 10px;
+  transition: 0.12s ease-in;
+}
+.displayArea input.active{
+  border-color: #0bb30b61 !important;
+  box-shadow: 0 0 10px rgba(65, 246, 125, 0.38);
+}
+
+.displayArea input.active ~ span{
+  opacity: 1;
+  margin-top: 0;
+  visibility: visible;
+}
+
+
+.strength{
+  width:100%;
+  height: 8px;
+  background-color: #eee;
+  margin: 5px 0 10px;
+  border-radius: 10px;
+  position: relative;
+  --width: 0%;
+  --position: 0;
+}
+
+.strength::after{
+  transition: 0.35s;
+  content: '';
+  position: absolute;
+  width: var(--width);
+  height: 100%;
+  background-image:linear-gradient(to right, rgb(255, 129, 120),red, rgb(255, 255, 130), rgb(255, 225, 0), lightgreen, lime);
+  background-position:var(--position);
+  background-size: 400%;
+  border-radius: inherit;
+
+}
+
+
+.errors > * {
+  font-size: 12px;
+  color: red;
+  margin-bottom: 5px;
+}

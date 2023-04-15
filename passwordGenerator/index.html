@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <h2><span>Password</span> Generator</h2>
+        <div class="displayArea"><input class="display" type="text" placeholder="Password"> <span>Copied!</span></div>
+
+        <div class="strength">
+
+        </div>
+        
+
+
+        <div class="inputArea">
+            <label for="Length">
+                Total Length
+            </label>
+            <input type="text" id="Length" class="totalLength" value="20">
+        </div>
+        <div class="inputArea">
+            <label for="upper">
+                Upper Case
+            </label>
+            <input type="checkbox" checked name="upper" id="upper">
+        </div>
+        <div class="inputArea">
+            <label for="lower">
+                Lower Case
+            </label>
+            <input type="checkbox" checked name="lower" id="lower">
+        </div>
+        <div class="inputArea">
+            <label for="number">
+                Number
+            </label>
+            <input type="checkbox" checked name="number" id="number">
+        </div>
+        <div class="inputArea">
+            <label for="char">
+                Special Charecter
+            </label>
+            <input type="checkbox" checked name="char" id="char">
+        </div>
+
+        <button class="submit">Submit</button>
+
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
