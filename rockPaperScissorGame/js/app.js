@@ -9,18 +9,16 @@ const computerImage = document.querySelector("img.com");
 
 //* SET OF LISTS
 const allItems = {
-  rock: "../image/rock-rev.png",
-  paper: "../image/paper.png",
-  scissor: "../image/scissor.png",
+  rock: "image/rock-rev.png",
+  paper: "image/paper.png",
+  scissor: "image/scissor.png",
 };
 
 const allItemsRev = {
-  rock: "../image/rock.png",
-  paper: "../image/paper-rev.png",
-  scissor: "../image/scissor-rev.png",
+  rock: "image/rock.png",
+  paper: "image/paper-rev.png",
+  scissor: "image/scissor-rev.png",
 };
-
-
 
 //* INIT GAME
 const initGame = () => {
@@ -39,7 +37,7 @@ const gameResult = (e) => {
 
 //* PLAY ANIMATION
 const playAnimation = async (player, computer, playerInput, comInput) => {
-    //* RESETING VALUES
+  //* RESETING VALUES
   player.src = allItems.rock;
   computer.src = allItemsRev.rock;
   player.classList.remove("active");
@@ -57,27 +55,23 @@ const playAnimation = async (player, computer, playerInput, comInput) => {
     computer.src = allItemsRev[`${comInput}`];
 
     //* CHECK WINNERS
-    let result = checkWinner(playerInput,comInput);
+    let result = checkWinner(playerInput, comInput);
     resultBtn.innerHTML = result;
   }, 1500);
 };
 
 //* CHECK FOR WINNER
 
-const checkWinner = (playerInput,comInput) => {
-    if(playerInput == comInput){
-        return 'Draw 😓';
-    }
-
-    else if(comInput == 'rock'){
-        return playerInput == "paper" ? "You Win 😀" : "You Lose 😭";
-    }
-    else if(comInput == 'paper'){
-        return playerInput == "scissor" ? "You Win 😀" : "You Lose 😭";
-    }
-    else if (comInput == "scissor") {
-      return playerInput == "rock" ? "You Win 😀" : "You Lose 😭";
-    }
+const checkWinner = (playerInput, comInput) => {
+  if (playerInput == comInput) {
+    return "Draw 😓";
+  } else if (comInput == "rock") {
+    return playerInput == "paper" ? "You Win 😀" : "You Lose 😭";
+  } else if (comInput == "paper") {
+    return playerInput == "scissor" ? "You Win 😀" : "You Lose 😭";
+  } else if (comInput == "scissor") {
+    return playerInput == "rock" ? "You Win 😀" : "You Lose 😭";
+  }
 };
 
 //* GET USER INPUT
