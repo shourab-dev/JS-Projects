@@ -1,18 +1,23 @@
 //* ALL MUSIC LIST
 let track = document.createElement("audio");
+const playBtn = document.querySelector(".playBtn");
+const forwardBtn = document.querySelector(".forward");
+const backBtn = document.querySelector(".back");
+const musicSlider = document.querySelector(`.musicSlider input[type="range"]`);
 let allMusicLists = [
   {
     id: 1,
-    name: "Closer",
-    audio: "audio/closer.mp3",
-    image: "images/closer.jpg",
-  },
-  {
-    id: 2,
     name: "Girl Likes You",
     audio: "audio/girl-like-you.mp3",
     image: "images/girl-like-you.jpg",
   },
+  {
+    id: 2,
+    name: "Closer",
+    audio: "audio/closer.mp3",
+    image: "images/closer.jpg",
+  },
+
   {
     id: 3,
     name: "Hold On",
@@ -45,9 +50,9 @@ const initMusicPlayList = (musicLists) => {
        <div  data-id="${index}"  class="swiper-slide ${
       musicSlides.length == 0 ? "swiper-slide-active" : ""
     }">
-                   <a href="#" ><img draggable="false" src="${
-                     music.image
-                   }" alt="${music.name}" ></a>
+                   <img draggable="false" src="${music.image}" alt="${
+      music.name
+    }" >
                 </div>`;
 
     musicSlides.push(slide);
@@ -65,38 +70,52 @@ const swiper = new Swiper(".swiper", {
   // Optional parameters
   direction: "horizontal",
   loop: true,
-  slidesPerView: 2,
+  slidesPerView: 3,
+  centeredSlides: true,
   spaceBetween: 10,
   grabCursor: true,
+  on: {
+    click() {
+      swiper.slideTo(this.clickedIndex);
+    },
+  },
 });
 
 //* FIRE EVENT ON SLIDE CHANGE
 
-swiper.on("slideChange", function (e) {
+swiper.on("slideChange", (e) => {
   setTimeout(() => {
     let activeSlider = document.querySelector(
       ".sliderWrapper .swiper-slide-active"
     );
 
     let getAudioData = allMusicLists[activeSlider.dataset.id].audio;
-    reset();
+
     track.src = getAudioData;
     track.load();
+    track.play();
+
+    playBtn.innerHTML = `<i class="bi bi-pause"></i>`;
   }, 150);
 });
 
 //* PLAY BUTTON
-const playBtn = document.querySelector(".playBtn");
-const forwardBtn = document.querySelector(".forward");
-const backBtn = document.querySelector(".back");
 
 const playMusic = (e) => {
   e.target.classList.toggle("playing");
+  let setProgress = setInterval(() => {
+    musicSlider.value = track.currentTime;
+    getPercentage(track.duration, track.currentTime);
+    if(track.duration == track.currentTime){
+      forwardsPlayList()
+    }
+  }, 1000);
+
   if (e.target.classList.contains("playing")) {
     track.play();
-
     e.currentTarget.innerHTML = `<i class="bi bi-pause"></i>`;
   } else {
+    clearInterval(setProgress);
     track.pause();
     e.currentTarget.innerHTML = `  <i class="bi bi-play-fill"></i>`;
   }
@@ -117,3 +136,24 @@ const backwardsPlayList = (e) => {
 playBtn.addEventListener("click", playMusic);
 forwardBtn.addEventListener("click", forwardsPlayList);
 backBtn.addEventListener("click", backwardsPlayList);
+
+//* TRACK ON CHANGE
+const changeTrack = (e) => {
+  track.currentTime = e.target.value;
+  track.play();
+  playBtn.innerHTML = `<i class="bi bi-pause"></i>`;
+  getPercentage(track.duration, track.currentTime);
+};
+musicSlider.addEventListener("change", changeTrack);
+
+//* CALCULATE PERCENTAGE
+const getPercentage = (time, current) => {
+  let currentWidth = Math.floor((100 / time) * current);
+  console.log(time, current);
+  musicSlider.style.setProperty("--width", `${currentWidth}%`);
+};
+
+//* TRACK ON LOAD
+track.addEventListener("loadedmetadata", () => {
+  musicSlider.max = track.duration;
+});
