@@ -26,6 +26,7 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
+  
 }
 
 .wrapper {
@@ -38,6 +39,11 @@ body {
   background-color: var(--primaryColor);
   padding-right: 0;
   position: relative;
+}
+@media (max-width: 400px) {
+    .wrapper{
+      width: 320px;
+    }
 }
 
 .wrapper > h2 {
